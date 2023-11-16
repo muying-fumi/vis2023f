@@ -1,0 +1,14 @@
+{
+  "name": "56f4c53177a0b5a0",
+  "main": "56f4c53177a0b5a0@101.js",
+  "version": "101.0.0",
+  "homepage": "https://observablehq.com/d/56f4c53177a0b5a0",
+  "author": {
+    "name": "李瑄文's Workspace",
+    "url": "https://observablehq.com/@li-xuan-wen-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
