@@ -280,7 +280,7 @@
   <!-- ------------------------------------------------>
   <div class="row hw12">
     <div class="col-md-12 twenty">
-      <iframe width="100%" height="500" frameborder="0"
+      <iframe width="100%" height="500" frameborder="0" style="background-color: #FFFFFF"
         src="https://observablehq.com/embed/544a53c9e6f6a7be@43?cell=*"></iframe>
     </div>
   </div>
@@ -322,6 +322,18 @@
 
     if (d3.select("#myCheckbox3").property("checked")){
       score += parseInt(d3.select('#m3').html());   
+    }
+
+    if (d3.select("#myCheckbox4").property("checked")){
+      score += parseInt(d3.select('#m4').html());   
+    }
+
+    if (d3.select("#myCheckbox5").property("checked")){
+      score += parseInt(d3.select('#m5').html());   
+    }
+
+    if (d3.select("#myCheckbox6").property("checked")){
+      score += parseInt(d3.select('#m6').html());   
     }
 
     d3.select("#myTotal").html(score);    
