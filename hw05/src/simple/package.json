@@ -1,0 +1,14 @@
+{
+  "name": "8920eade17d32caa",
+  "main": "8920eade17d32caa@45.js",
+  "version": "45.0.0",
+  "homepage": "https://observablehq.com/d/8920eade17d32caa",
+  "author": {
+    "name": "李瑄文's Workspace",
+    "url": "https://observablehq.com/@li-xuan-wen-ws"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4 - 5"
+  }
+}
