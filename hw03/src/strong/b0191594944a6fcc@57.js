@@ -1,11 +1,11 @@
 import define1 from "./e93997d5089d7165@2303.js";
 
 function _1(md){return(
-md`# HW03 Medium baseline (4pt)`
+md`# HW3 Strong Baseline`
 )}
 
-function _data(FileAttachment){return(
-FileAttachment("UserData@1.json").json()
+function _userdata(FileAttachment){return(
+FileAttachment("UserData.json").json()
 )}
 
 function _bgColor(Inputs){return(
@@ -66,7 +66,7 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
 
   const maxValue = 42;
   const thresholds = d3.range(0, maxValue + 1);
-  const colorRange = thresholds.map(value => d3.interpolateBlues(value / maxValue));
+  const colorRange = thresholds.map(value => d3.interpolateReds(value / maxValue));
   const thresholdScale = d3.scaleThreshold().domain(thresholds).range(colorRange);
   
   details
@@ -80,7 +80,7 @@ function _taiwanMap(d3,topojson,tw,DOM,bgColor,strokeColor,strokeOpacity,minidat
       );
       return foundData ? thresholdScale(foundData.count) : thresholdScale(0);
     })
-    .attr("stroke", "white")
+    .attr("stroke", "gray")
     .attr("d", path)
     .append("title")
     .text((d) => {
@@ -103,12 +103,12 @@ function _8(md){return(
 md`## Parameter`
 )}
 
-function _LivePlace(data){return(
-Object.keys(data[0])[0]
+function _LivePlace(userdata){return(
+Object.keys(userdata[0])[0]
 )}
 
-function _LivePlace_column(data,LivePlace){return(
-data.map(row => row[LivePlace])
+function _LivePlace_column(userdata,LivePlace){return(
+userdata.map(row => row[LivePlace])
 )}
 
 function _LivePlace_uniqueValues(LivePlace_column){return(
@@ -256,11 +256,11 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["UserData@1.json", {url: new URL("../json/UserData.json", import.meta.url), mimeType: "application/json", toString}]
+    ["UserData.json", {url: new URL("./files/37a09ac7213b196f8dfc9f01c6e2cdf63bf5bf446fedded78b4ce6a9a636a2745ecacb45a6d689d3d21c8e215c76b37380cd8dbf847d839f753f6b8e4e0d4bed.json", import.meta.url), mimeType: "application/json", toString}]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], _1);
-  main.variable(observer("data")).define("data", ["FileAttachment"], _data);
+  main.variable(observer("userdata")).define("userdata", ["FileAttachment"], _userdata);
   main.variable(observer("viewof bgColor")).define("viewof bgColor", ["Inputs"], _bgColor);
   main.variable(observer("bgColor")).define("bgColor", ["Generators", "viewof bgColor"], (G, _) => G.input(_));
   main.variable(observer("viewof strokeColor")).define("viewof strokeColor", ["Inputs"], _strokeColor);
@@ -270,8 +270,8 @@ export default function define(runtime, observer) {
   main.variable(observer("taiwan")).define("taiwan", ["taiwanMap"], _taiwan);
   main.variable(observer("taiwanMap")).define("taiwanMap", ["d3","topojson","tw","DOM","bgColor","strokeColor","strokeOpacity","minidata"], _taiwanMap);
   main.variable(observer()).define(["md"], _8);
-  main.variable(observer("LivePlace")).define("LivePlace", ["data"], _LivePlace);
-  main.variable(observer("LivePlace_column")).define("LivePlace_column", ["data","LivePlace"], _LivePlace_column);
+  main.variable(observer("LivePlace")).define("LivePlace", ["userdata"], _LivePlace);
+  main.variable(observer("LivePlace_column")).define("LivePlace_column", ["userdata","LivePlace"], _LivePlace_column);
   main.variable(observer("LivePlace_uniqueValues")).define("LivePlace_uniqueValues", ["LivePlace_column"], _LivePlace_uniqueValues);
   main.variable(observer("LivePlace_counts")).define("LivePlace_counts", ["LivePlace_uniqueValues","LivePlace_column"], _LivePlace_counts);
   main.variable(observer("minidata")).define("minidata", ["LivePlace_counts"], _minidata);
